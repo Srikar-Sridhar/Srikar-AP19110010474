@@ -1,0 +1,128 @@
+
+1.
+#include<stdio.h>
+
+int G[20][20],visited[20],z;
+
+void DFS(int i)
+
+{
+
+int s;
+
+printf("\n%d",i);
+
+visited[i]=1;
+
+for(s=0;s<z;s++)
+
+if(!visited[s]&&G[i][s]==1)
+
+DFS(s);
+
+}
+
+void main()
+
+{
+
+int i,s;
+
+printf("Enter number of vertices:");
+
+scanf("%d",&z);
+
+printf("\nEnter adjacency matrix of the graph:");
+
+for(i=0;i<z;i++)
+
+for(s=0;s<z;s++)
+
+scanf("%d",&G[i][s]);
+
+for(i=0;i<z;i++)
+
+visited[i]=0;
+
+DFS(0);
+
+}
+
+
+2.
+ #include<stdio.h>
+
+int a[5][5],q[5],visited[5],s,i,j,f=0,r=-1;
+
+void breadthfirstsearch(int v) {
+
+for (i=1;i<=s;i++)
+
+if(a[v][i] && !visited[i])
+
+q[++r]=i;
+
+if(f<=r) {
+
+visited[q[f]]=1;
+
+breadthfirstsearch(q[f++]);
+
+}
+
+}
+
+
+
+
+void main() {
+
+int v;
+
+printf("\n please enter the number of vertices:");
+
+scanf("%d",&s);
+
+for (i=1;i<=s;i++) {
+
+q[i]=0;
+
+visited[i]=0;
+
+}
+
+
+
+
+printf("\n please enter graph data in matrix form:\n");
+
+for (i=1;i<=s;i++)
+
+for (j=1;j<=s;j++)
+
+
+scanf("%d",&a[i][j]);
+
+printf("\n please enter the starting vertex:");
+
+scanf("%d",&v);
+
+
+
+breadthfirstsearch(v);
+
+printf("\n HERE ARE THE REACHABLE NODES...:\n");
+
+for (i=1;i<=s;i++)
+
+
+
+if(visited[i])
+
+printf("%d\t",i);
+
+else
+
+printf("\n breadthfirstsearch is not possible OOPPS");
+
+}
